@@ -4,7 +4,6 @@ import (
 	"bwastartup/handler"
 	"bwastartup/user"
 
-	// "fmt"
 	"log"
 	// "net/http"
 
@@ -34,10 +33,7 @@ func main() {
 	api := router.Group("/api/v1")
 
 	api.POST("/users", userHandler.RegisterUser)
+	api.POST("/sessions", userHandler.Login)
 
 	router.Run()
-}
-
-type ResponseData struct {
-	Data []user.User `json:"users"`
 }
